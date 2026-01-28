@@ -40,7 +40,7 @@ const My = () => {
             <Text style={styles.infoText}>• JavaScript/TypeScript</Text>
             <Text style={styles.infoText}>• React.js & Next.js</Text>
             <Text style={styles.infoText}>• Node.js & Express</Text>
-            <Text style={styles.infoText}>• MongoDB & REST APIs </Text> 
+            <Text style={styles.infoText}>• MongoDB & REST APIs </Text>
             <Text style={styles.infoText}>• Git & GitHub</Text>
             <Text style={styles.infoText}>• CSS/Styled Components</Text>
 
@@ -97,7 +97,6 @@ const My = () => {
             "The only way to learn a new programming language is by writing
             programs in it." - Dennis Ritchie
           </Text>
- 
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>
@@ -127,6 +126,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
+
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     padding: 20,
     minHeight: "100%", // Ensure overlay covers full content
