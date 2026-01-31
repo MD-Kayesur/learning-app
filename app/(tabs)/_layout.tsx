@@ -26,17 +26,7 @@ export default function TabLayout() {
         },
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          headerTitle: "about",
-
-          title: "About",
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="person-circle-outline" size={28} color={color} />
-          ),
-        }}
-      />
+    
       <Tabs.Screen
         name="home"
         options={{

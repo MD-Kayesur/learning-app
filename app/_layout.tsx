@@ -4,41 +4,46 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
- 
 
-export const unstable_settings = {
-  anchor: "(tabs)",
-};
+import { ClerkProvider } from "@clerk/clerk-expo";
+import { tokenCache } from '@clerk/clerk-expo/token-cache'
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      {/* <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack> */}
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{
-          headerTitle:"tabs",
+    <ClerkProvider tokenCache={tokenCache}>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
         
-        }} />
-        <Stack.Screen
-          name="home"
-          options={{
-            headerTitle: "home",
-            title: "Home",
-            // headerShown: false,
-          }}
-        />
-        <Stack.Screen name="my" options={{}} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+          {/* Protected routes */}
+          <Stack.Screen
+            name="(tabs)"
+            options={{
+              headerShown: false,
+              // Can add auth guard here
+            }}
+          />
+          <Stack.Screen
+            name="(auth)"
+            options={{
+              headerShown: false,
+              // Can add auth guard here
+            }}
+          />
+
+          {/* Modal routes */}
+          <Stack.Screen
+            name="modal"
+            options={{
+              presentation: "modal",
+              headerTitle: "Settings",
+            }}
+          />
+        </Stack>
+      </ThemeProvider>
+    </ClerkProvider>
   );
 }
