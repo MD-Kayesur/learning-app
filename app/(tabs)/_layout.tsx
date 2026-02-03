@@ -1,12 +1,12 @@
 //import liraries
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 // create a component
-const Hi = () => {
+const Layout = () => {
     return (
         <View style={styles.container}>
-            <Text>Hi</Text>
+            <Text>Layout</Text>
         </View>
     );
 };
@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        // backgroundColor: '#2c3e50',
     },
 });
 
 //make this component available to the app
-export default Hi;
+export default Layout;
